@@ -1,0 +1,8 @@
+Please answer the following sub-question for Customer {customer_id}:
+Sub-question: {sub_question}
+
+Use these data sources:
+MCP Data: {mcp_output}
+KG Data: {kg_output}
+
+Retry Instructions (if any): {retry_instruction}

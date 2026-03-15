@@ -1,0 +1,5 @@
+Analyze the fraud risk for Customer {customer_id}.
+Sub-question: {sub_question}
+MCP Data: {mcp_output}
+KG Data: {kg_output}
+Retry Instructions: {retry_instruction}

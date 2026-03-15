@@ -1,0 +1,14 @@
+Original User Goal: {goal}
+Current Iteration: {iteration}
+Scratchpad: {scratchpad}
+
+Current verification status of agent outputs:
+{critique_verdicts}
+
+Partial agent results so far:
+{agent_outputs}
+
+Based on the above, decide whether to:
+1. Continue the loop by calling the Planner.
+2. Exit the loop because the goal is satisfied.
+3. Exit the loop because max iterations or an escalation was reached.

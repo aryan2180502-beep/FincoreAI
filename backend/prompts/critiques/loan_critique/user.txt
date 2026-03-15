@@ -1,0 +1,7 @@
+Sub-question: {sub_question}
+Specialist Output: {agent_output}
+Data Sources:
+MCP: {mcp_data_used}
+KG: {kg_data_used}
+
+Evaluate the output based on the checklist.

@@ -1,0 +1,9 @@
+langgraph
+langchain-google-genai
+langsmith
+pydantic
+neo4j
+faker
+python-dotenv
+pyyaml
+pytest

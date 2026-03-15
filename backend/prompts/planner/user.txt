@@ -1,0 +1,9 @@
+Original Query: {query}
+Identified Intents: {intents}
+Agent Outputs So Far: {outputs_so_far}
+Critique Verdicts & Issues: {critiques}
+Iteration Counter: {iteration}
+
+Please provide the next step in the plan.
+If an agent needs to be retried, include it in the 'agents_to_call' list.
+If all information is gathered, set 'done' to true.
