@@ -27,7 +27,9 @@ class QueryParser:
         )
         
         prompt = ChatPromptTemplate.from_template(
-            "Extract the banking intents, customer ID, and entities from the following user query: {query}"
+            "Extract the banking intents, customer ID, and entities from the following user query: {query}. "
+            "Customer IDs usually follow the format 'CUST-XXXX' (e.g., CUST-0042, CUST-0007). "
+            "If an ID like CUST-XXXX is found, extract it as customer_id. Otherwise, use 'UNKNOWN'."
         )
         chain = prompt | self.llm
         result = chain.invoke({"query": state["query"]})

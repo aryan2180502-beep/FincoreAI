@@ -33,9 +33,14 @@ class SpecialistAgent:
         # Specialist Logic with MCP Tools and KG Queries
         mcp_start = time.time()
         if self.name == "account":
-            # Account Balance & Lookup (Q1, Q4)
-            mcp_output = MockMCP.get_account_summary(customer_id)
-            self.audit_logger.log_mcp_call(execution_id, "core_banking_mcp", "get_account_summary", {"cid": customer_id}, mcp_output, int((time.time()-mcp_start)*1000))
+            # Account Balance, Lookup & Transactions (Q1, Q4)
+            accounts = MockMCP.get_account_summary(customer_id)
+            transactions = MockMCP.get_transactions(customer_id)
+            mcp_output = {
+                "accounts": accounts,
+                "transactions": transactions
+            }
+            self.audit_logger.log_mcp_call(execution_id, "core_banking_mcp", "get_account_data", {"cid": customer_id}, mcp_output, int((time.time()-mcp_start)*1000))
             kg_output = self.neo4j.execute_query(execution_id, "Q1", {"cid": customer_id})
             kg_output += self.neo4j.execute_query(execution_id, "Q4", {"cid": customer_id})
 
