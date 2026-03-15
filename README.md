@@ -53,12 +53,18 @@ graph TD
 ## 🛠️ Technology Stack
 
 - **Framework**: [LangGraph](https://github.com/langchain-ai/langgraph)
-- **Model**: Google Gemini Pro (via `langchain-google-genai`)
+- **Model**: Google Gemini 2.0 Flash (via `langchain-google-genai`)
 - **Knowledge Base**: 
   - **Neo4j**: Structured financial data and relationships.
   - **ChromaDB**: Vector store for RAG.
 - **Logging**: SQLite for audit trails.
 - **Observability**: [LangSmith](https://smith.langchain.com/) for tracing and evaluation.
+
+## ✨ Premium UI Features
+
+- **Glassmorphism Design**: A sleek, modern aesthetic with translucent elements and vibrant gradients.
+- **Real-time Reasoning Logs**: Watch the "Agent Reasoning" sidebar as the orchestrator dispatches specialists and critics.
+- **Interactive Chat**: Responsive layout with smooth animations and dynamic message bubbles.
 
 ## 📦 Getting Started
 
@@ -103,6 +109,15 @@ To test the assistant with sample scenarios via the command line:
 ```bash
 python main.py
 ```
+
+## 👥 Test Customers
+
+The program uses a mock dataset in `data/fixtures/core_banking.json`. Use these IDs for testing:
+
+| Customer ID | Name | Use Case |
+| :--- | :--- | :--- |
+| **`CUST-0042`** | Rajesh Sharma | General banking, loan eligibility |
+| **`CUST-0007`** | Priya Mehta | High value accounts, fraud detection |
 
 ## 📁 Project Structure
 
