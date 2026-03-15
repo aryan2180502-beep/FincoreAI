@@ -1,5 +1,5 @@
 from typing import Dict, Any, List
-from langchain_google_genai import ChatGeminiAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from backend.graph.state import StateSchema
 from backend.utils.prompt_loader import PromptLoader
 from backend.mcp.mock_mcp import MockMCP
@@ -10,10 +10,10 @@ import uuid
 import time
 
 class SpecialistAgent:
-    def __init__(self, name: str, prompt_loader: PromptLoader, model_name="gemini-1.5-flash"):
+    def __init__(self, name: str, prompt_loader: PromptLoader, model_name="gemini-2.0-flash"):
         self.name = name
         self.loader = prompt_loader
-        self.llm = ChatGeminiAI(model=model_name)
+        self.llm = ChatGoogleGenerativeAI(model=model_name)
         self.audit_logger = AuditLogger()
         self.neo4j = MockNeo4j(self.audit_logger)
 
@@ -82,10 +82,10 @@ class SpecialistAgent:
                 "mcp_calls_log": state["mcp_calls_log"] + [{"agent": self.name, "output": mcp_output, "execution_id": execution_id}]}
 
 class CritiqueAgent:
-    def __init__(self, name: str, prompt_loader: PromptLoader, model_name="gemini-1.5-flash"):
+    def __init__(self, name: str, prompt_loader: PromptLoader, model_name="gemini-2.0-flash"):
         self.name = name
         self.loader = prompt_loader
-        self.llm = ChatGeminiAI(model=model_name)
+        self.llm = ChatGoogleGenerativeAI(model=model_name)
         self.audit_logger = AuditLogger()
 
     def run(self, state: StateSchema) -> Dict[str, Any]:

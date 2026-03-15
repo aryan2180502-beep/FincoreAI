@@ -67,7 +67,7 @@ def create_graph():
     # In a real multi-agent graph, we'd have a router node after planner.
     
     def planner_router(state: StateSchema):
-        plan = state.get("plan", {{}})
+        plan = state.get("plan", {})
         if plan.get("done"):
             return "orchestrator"
         

@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from langchain_google_genai import ChatGeminiAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from pydantic import BaseModel, Field
 from backend.graph.state import StateSchema
 from backend.utils.prompt_loader import PromptLoader
@@ -15,9 +15,9 @@ class Plan(BaseModel):
     done: bool = Field(description="Whether the task is complete")
 
 class Planner:
-    def __init__(self, prompt_loader: PromptLoader, model_name="gemini-1.5-flash"):
+    def __init__(self, prompt_loader: PromptLoader, model_name="gemini-2.0-flash"):
         self.loader = prompt_loader
-        self.llm = ChatGeminiAI(model=model_name).with_structured_output(Plan)
+        self.llm = ChatGoogleGenerativeAI(model=model_name).with_structured_output(Plan)
         self.audit_logger = AuditLogger()
 
     def run(self, state: StateSchema) -> Dict[str, Any]:

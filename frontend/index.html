@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FincoreAI | Premium Banking Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="icon">🏦</span>
+                <h1>FincoreAI</h1>
+            </div>
+            <div class="status">
+                <span class="pulse"></span> System Online
+            </div>
+        </header>
+
+        <main>
+            <div class="chat-wrapper">
+                <div id="chat-messages" class="chat-messages">
+                    <div class="message system-message">
+                        Hello! I am FincoreAI. How can I assist you with your banking needs today?
+                    </div>
+                </div>
+                
+                <div id="loading-indicator" class="loading-indicator hidden">
+                    <div class="spinner"></div>
+                    <span>Orchestrating Agents...</span>
+                </div>
+            </div>
+
+            <aside class="reasoning-sidebar">
+                <h3><span class="icon">🔍</span> Agent Reasoning</h3>
+                <div id="reasoning-logs" class="reasoning-logs">
+                    <p class="empty-state">No active queries yet.</p>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <form id="query-form" class="query-form">
+                <input type="text" id="query-input" placeholder="Type your banking query here..." autocomplete="off" required>
+                <button type="submit" id="send-btn">
+                    <span class="btn-text">Send</span>
+                    <span class="icon">➔</span>
+                </button>
+            </form>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

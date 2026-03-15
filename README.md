@@ -87,9 +87,18 @@ graph TD
    pip install -r requirements.txt
    ```
 
-### Running the Demo
+### Running the API and Frontend
 
-To test the assistant with sample scenarios (Loan Eligibility and Fraud Check):
+1. **Start the API server**:
+   ```bash
+   python3 -m uvicorn backend.api:app --host 0.0.0.0 --port 8001
+   ```
+
+2. **Open the Frontend**:
+   Open `frontend/index.html` in your web browser.
+
+### Running the CLI Demo
+To test the assistant with sample scenarios via the command line:
 
 ```bash
 python main.py

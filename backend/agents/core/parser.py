@@ -1,7 +1,7 @@
 import uuid
 import time
 from typing import Dict, Any
-from langchain_google_genai import ChatGeminiAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 from backend.graph.state import StateSchema
@@ -13,8 +13,8 @@ class ParsedQuery(BaseModel):
     entities: list[str] = Field(description="Entities like account numbers, dates, or amounts mentioned")
 
 class QueryParser:
-    def __init__(self, model_name="gemini-1.5-flash"):
-        self.llm = ChatGeminiAI(model=model_name).with_structured_output(ParsedQuery)
+    def __init__(self, model_name="gemini-2.0-flash"):
+        self.llm = ChatGoogleGenerativeAI(model=model_name).with_structured_output(ParsedQuery)
         self.audit_logger = AuditLogger()
 
     def parse(self, state: StateSchema) -> Dict[str, Any]:
